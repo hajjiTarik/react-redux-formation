@@ -5,4 +5,4 @@
 
 ## License
 
-MIT license, Copyright (c) 2018 Dinesh Pandiyan.
+MIT license, Copyright (c) 2018 Hajji Tarik.
