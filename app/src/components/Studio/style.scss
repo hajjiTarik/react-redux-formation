@@ -1,0 +1,12 @@
+.Studio {
+  width: 300px;
+  height: 512px;
+  display: inline-block;
+  vertical-align: top;
+  padding: 20px;
+  background: #afd3e0;
+  box-sizing: border-box;
+  >div {
+    padding: 10px 0;
+  }
+}

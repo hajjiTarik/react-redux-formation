@@ -45,6 +45,7 @@
     "minimist": "1.2.0",
     "prop-types": "15.6.1",
     "react": "^16.4.0",
+    "react-color": "^2.14.1",
     "react-dom": "^16.4.0",
     "react-helmet": "5.2.0",
     "react-loadable": "^5.4.0",
@@ -57,7 +58,8 @@
     "reselect": "3.0.1",
     "sanitize.css": "4.1.0",
     "warning": "^4.0.1",
-    "whatwg-fetch": "2.0.4"
+    "whatwg-fetch": "2.0.4",
+    "reactcss": "latest"
   },
   "devDependencies": {
     "add-asset-html-webpack-plugin": "2.1.3",

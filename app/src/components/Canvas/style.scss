@@ -1,0 +1,28 @@
+.canvas {
+  width: 512px;
+  height: 512px;
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  border: 2px solid;
+  overflow: hidden;
+  .scene {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 0;
+  }
+  img, p {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    margin: auto;
+  }
+  p {
+    height: 30px;
+    text-align: center;
+  }
+}
