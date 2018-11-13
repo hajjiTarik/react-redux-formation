@@ -20,22 +20,23 @@ export default class extends Component {
 
   handleBackgroundColor = color => {
     this.setState({
-      backgroundColor: color
+      backgroundColor: color,
+      fromColor: "transparent",
+      toColor: "transparent",
+
     });
   };
 
   handleBackgroundColorFrom = from => {
     this.setState({
-      fromColor: from
+      fromColor: from,
     });
   };
 
   handleBackgroundColorTo = to => {
     this.setState({
-      toColor: to
+      toColor: to,
     });
-
-    console.log(this.state);
   };
 
   render() {
