@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import {connect} from "react-redux";
 import ColorPicker from "../../../../ColorPicker";
+import {setBackgroundColor} from "../../../../../../../redux/actions";
 
-export default class extends Component {
+class Gradient extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -11,7 +13,7 @@ export default class extends Component {
 
   renderGradient = () =>{
     if(this.state.gradientType === "plain") {
-      return <ColorPicker handleColor={this.props.handleBackgroundColor}/>;
+      return <ColorPicker handleColor={this.props.setBackgroundColor}/>;
     }else {
       return <div>
         <span>From</span><ColorPicker handleColor={this.props.handleBackgroundColorFrom}/>
@@ -39,3 +41,11 @@ export default class extends Component {
     )
   }
 }
+const mapDispatchToProps = dispatch => ({
+  setBackgroundColor : (color) => {
+    dispatch(setBackgroundColor(color));
+  }
+});
+
+export default connect(null, mapDispatchToProps)(Gradient);
+
