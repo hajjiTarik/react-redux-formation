@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import ControlPanel from "./components/ControlPanel"
 import Preview from "./components/Preview"
 
+console.log(Preview);
+
 export default class extends Component {
 
   constructor(props) {
@@ -15,14 +17,6 @@ export default class extends Component {
   handleSVG = svg => {
     this.setState({
       svg
-    });
-  };
-
-  handleBackgroundColor = color => {
-    this.setState({
-      backgroundColor: color,
-      fromColor: "transparent",
-      toColor: "transparent",
     });
   };
 
@@ -49,7 +43,6 @@ export default class extends Component {
       <div className="app-container">
         <ControlPanel
           handleSVG={this.handleSVG}
-          handleBackgroundColor={this.handleBackgroundColor}
           handleBackgroundColorFrom={this.handleBackgroundColorFrom}
           handleBackgroundColorTo={this.handleBackgroundColorTo}
           handleRotate={this.handleRotate}

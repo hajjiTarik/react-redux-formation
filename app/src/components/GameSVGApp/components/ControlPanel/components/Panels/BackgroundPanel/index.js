@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import Gradient from "./components/Gradient";
+import { setBackgroundColor } from "../../../../../redux/actions"
 
-export default class BackgroundPanel extends Component {
+class BackgroundPanel extends Component {
 
   render (){
     return (
@@ -9,7 +11,7 @@ export default class BackgroundPanel extends Component {
         <h4>Background</h4>
         <div>
           <Gradient
-            handleBackgroundColor={this.props.handleBackgroundColor}
+            handleBackgroundColor={this.props.setBackgroundColor}
             handleBackgroundColorFrom={this.props.handleBackgroundColorFrom}
             handleBackgroundColorTo={this.props.handleBackgroundColorTo}
           />
@@ -18,3 +20,11 @@ export default class BackgroundPanel extends Component {
     );
   }
 }
+
+const mapDispatchToProps = dispatch => ({
+  setBackgroundColor : (color) => {
+    dispatch(setBackgroundColor(color));
+  }
+});
+
+export default connect(null, mapDispatchToProps)(BackgroundPanel);

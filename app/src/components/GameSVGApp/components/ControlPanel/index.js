@@ -20,7 +20,6 @@ export default class extends Component {
     switch (this.state.currentPanel) {
       case "Background":
         return <BackgroundPanel
-          handleBackgroundColor={this.props.handleBackgroundColor}
           handleBackgroundColorFrom={this.props.handleBackgroundColorFrom}
           handleBackgroundColorTo={this.props.handleBackgroundColorTo}
         />;

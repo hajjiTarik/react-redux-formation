@@ -29,8 +29,8 @@ const mapStateToProps = (state) => {
   console.log(state);
 
   return {
-    backgroundColor:state.app.fromColor,
+    backgroundColor:state.app.backgroundColor,
   }
 };
 
-export default ConnectedPreview = connect(mapStateToProps, null)(Preview);
+export default connect(mapStateToProps, null)(Preview);
