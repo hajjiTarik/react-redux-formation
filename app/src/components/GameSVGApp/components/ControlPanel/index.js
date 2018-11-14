@@ -25,7 +25,9 @@ export default class extends Component {
           handleBackgroundColorTo={this.props.handleBackgroundColorTo}
         />;
       case "Foreground":
-        return <ForegroundPanel/>;
+        return <ForegroundPanel
+          handleRotate={this.props.handleRotate}
+        />;
       case "Text":
         return <TextPanel/>;
       case "Size":

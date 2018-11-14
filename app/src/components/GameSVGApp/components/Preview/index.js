@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-export default class extends Component {
+import { connect } from "react-redux";
+
+class Preview extends Component {
   constructor(props){
     super(props);
   }
@@ -21,3 +23,14 @@ export default class extends Component {
     )
   }
 }
+
+
+const mapStateToProps = (state) => {
+  console.log(state);
+
+  return {
+    backgroundColor:state.app.fromColor,
+  }
+};
+
+export default ConnectedPreview = connect(mapStateToProps, null)(Preview);

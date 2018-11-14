@@ -23,7 +23,6 @@ export default class extends Component {
       backgroundColor: color,
       fromColor: "transparent",
       toColor: "transparent",
-
     });
   };
 
@@ -39,6 +38,12 @@ export default class extends Component {
     });
   };
 
+  handleRotate = rotate => {
+    this.setState({
+      rotate
+    })
+  };
+
   render() {
     return (
       <div className="app-container">
@@ -47,6 +52,7 @@ export default class extends Component {
           handleBackgroundColor={this.handleBackgroundColor}
           handleBackgroundColorFrom={this.handleBackgroundColorFrom}
           handleBackgroundColorTo={this.handleBackgroundColorTo}
+          handleRotate={this.handleRotate}
         />
         <Preview {...this.state} />
       </div>

@@ -1,30 +1,41 @@
 import React, { Component } from "react";
-import instance from "../../../../../../API/instance";
 
 export default class extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      icons : [],
+      icons : [
+        {
+          label: "Beer",
+          source: require("../../../../../../svg/001-beer.svg")
+        },
+        {
+          label: "Invitation",
+          source: require("../../../../../../svg/002-invitation.svg")
+        },
+        {
+          label: "balloons",
+          source: require("../../../../../../svg/003-balloons.svg")
+        },
+        {
+          label: "hat",
+          source: require("../../../../../../svg/004-hat.svg")
+        },
+        {
+          label: "avocado",
+          source: require("../../../../../../svg/005-avocado.svg")
+        },
+        {
+          label: "gift",
+          source: require("../../../../../../svg/006-gift-box.svg")
+        },
+        {
+          label: "fireworks",
+          source: require("../../../../../../svg/007-fireworks.svg")
+        },
+      ],
       selectedIcon: {}
     }
-  }
-
-  componentDidMount () {
-    instance.get("5beb04a12f00002435da3d96").then(({data}) => {
-      const derivedData = data.map(async icon => {
-        return {
-          ...icon,
-          source: icon.source
-        }
-      });
-
-      console.log(derivedData);
-
-      this.setState(()=>({
-        icons: derivedData
-      }));
-    });
   }
 
   change = event => {
