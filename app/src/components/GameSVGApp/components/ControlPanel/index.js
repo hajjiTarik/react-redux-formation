@@ -1,54 +1,36 @@
-import React, { Component } from "react";
+import React, {Component, Fragment} from "react";
+import {connect} from "react-redux";
+
 import SelectIcons from "./components/SelectIcons";
 import StudioSelect from "./components/StudioSelect";
 import BackgroundPanel from "./components/Panels/BackgroundPanel";
 import ForegroundPanel from "./components/Panels/ForegroundPanel";
-import TextPanel from "./components/Panels/TextPanel";
-import SizePanel from "./components/Panels/SizePanel";
 
-export default class extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      currentPanel: null
-    }
+import "./style.scss";
+
+class ControlPanel extends Component {
+  renderPanels() {
+    if (!this.props.currentPanel) return null;
+    return this.props.currentPanel === "Background" ? <BackgroundPanel/> : <ForegroundPanel/>;
   }
 
-  renderPanels () {
-    if(!this.state.currentPanel) return;
-
-    switch (this.state.currentPanel) {
-      case "Background":
-        return <BackgroundPanel
-          handleBackgroundColorFrom={this.props.handleBackgroundColorFrom}
-          handleBackgroundColorTo={this.props.handleBackgroundColorTo}
-        />;
-      case "Foreground":
-        return <ForegroundPanel
-          handleRotate={this.props.handleRotate}
-        />;
-      case "Text":
-        return <TextPanel/>;
-      case "Size":
-        return <SizePanel/>;
-      default:
-        return null
-    }
-  }
-
-  handleCurrentPanel = (currentPanel) =>{
-    this.setState({
-      currentPanel
-    });
-  }
-
-  render(){
+  render() {
     return (
       <div className="control-panel">
-        <SelectIcons handleSVG={this.props.handleSVG} />
-        <StudioSelect handleCurrentPanel={this.handleCurrentPanel} />
-        {this.renderPanels()}
+        <div className="control-panel-content">
+          <SelectIcons/>
+          <StudioSelect/>
+        </div>
+        <div className="panel">
+          {this.renderPanels()}
+        </div>
       </div>
     );
   }
 }
+
+const mapStateToProps = ({ app }) => ({
+  currentPanel: app.panelReducer.currentPanel
+});
+
+export default connect(mapStateToProps)(ControlPanel);

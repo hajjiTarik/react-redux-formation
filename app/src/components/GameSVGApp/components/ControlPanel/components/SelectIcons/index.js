@@ -1,56 +1,40 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import {setSelectedSVG} from "./redux/actions";
 
-export default class extends Component {
+class SvgSelect extends Component {
   constructor(props) {
     super(props);
     this.state = {
       icons : [
         {
-          label: "Beer",
-          source: require("../../../../../../svg/001-beer.svg")
+          label: "Speaker",
+          source: "https://upload.wikimedia.org/wikipedia/commons/2/21/Speaker_Icon.svg"
         },
         {
-          label: "Invitation",
-          source: require("../../../../../../svg/002-invitation.svg")
+          label: "Rocket",
+          source: "http://simpleicon.com/wp-content/uploads/rocket.svg"
         },
         {
-          label: "balloons",
-          source: require("../../../../../../svg/003-balloons.svg")
+          label: "Map",
+          source: "http://simpleicon.com/wp-content/uploads/map-7.svg"
         },
         {
-          label: "hat",
-          source: require("../../../../../../svg/004-hat.svg")
-        },
-        {
-          label: "avocado",
-          source: require("../../../../../../svg/005-avocado.svg")
-        },
-        {
-          label: "gift",
-          source: require("../../../../../../svg/006-gift-box.svg")
-        },
-        {
-          label: "fireworks",
-          source: require("../../../../../../svg/007-fireworks.svg")
-        },
-      ],
-      selectedIcon: {}
+          label: "Key",
+          source: "http://www.iconninja.com/files/314/108/916/key-icon.svg"
+        }
+      ]
     }
   }
 
   change = event => {
-    if(!event.target.value) return;
-
-    this.setState({
-      selectedIcon :this.state.icons[event.target.value]
-    },()=> {
-      this.props.handleSVG(this.state.selectedIcon);
-    });
+    this.props.setSelectedSVG(this.state.icons[event.target.value]);
   };
 
   renderSelect = () =>
     <select onChange={this.change}>
       <option selected value="">none</option>
+
       {this.state.icons.map((icon, index)=>
         <option key={index} value={index}>{icon.label}</option>
       )}
@@ -63,3 +47,11 @@ export default class extends Component {
     </div>);
   }
 }
+
+const mapDispatchToProps = dispatch => ({
+  setSelectedSVG: svg => {
+    dispatch(setSelectedSVG(svg));
+  }
+});
+
+export default connect(null,mapDispatchToProps)(SvgSelect);

@@ -1,0 +1,12 @@
+.preview-container {
+  width: 60%;
+  max-height: 512px;
+  display: inline-block;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: inset 2px 2px rgba(0,0,0,.1);
+  img {
+    min-height: 400px;
+    min-width: 400px;
+  }
+}

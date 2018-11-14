@@ -1,36 +1,33 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React from "react";
+import {connect} from "react-redux";
 
-class Preview extends Component {
-  constructor(props){
-    super(props);
-  }
+import "./style.scss";
 
-  calculateStyle = () => {
+const Preview = props => (
+  <div className="preview-container" style={{
+    backgroundColor: props.backgroundColor,
+    backgroundImage: `linear-gradient(${props.fromColor}, ${props.toColor})`}}>
+    <img style={{
+      transform: `rotate(${props.rotate}deg)`
+    }} src={props.svg.source} alt="error"/>
+  </div>
+);
 
-    return {
-      width: "512px", height: "512px",
-      backgroundColor: this.props.backgroundColor,
-      backgroundImage: `linear-gradient(${this.props.fromColor}, ${this.props.toColor})`,
-    }
-  };
-
-  render () {
-    return (
-      <div className="preview-container" style={this.calculateStyle()}>
-        <img src={this.props.svg.source} alt="error"/>
-      </div>
-    )
-  }
-}
-
-
-const mapStateToProps = (state) => {
-  console.log(state);
-
-  return {
-    backgroundColor:state.app.backgroundColor,
-  }
+Preview.defaultProps = {
+  svg: {},
+  fromColor: "transparent",
+  toColor: "transparent",
+  backgroundColor: "transparent",
+  rotate: 0
 };
 
-export default connect(mapStateToProps, null)(Preview);
+
+const mapStateToProps = ({app}) => ({
+  backgroundColor: app.transformationReducer.backgroundColor,
+  rotate: app.transformationReducer.rotate,
+  svg: app.svgReducer.svg,
+  fromColor: app.transformationReducer.fromColor,
+  toColor: app.transformationReducer.toColor
+});
+
+export default connect(mapStateToProps)(Preview);

@@ -7,12 +7,7 @@ export default class BackgroundPanel extends Component {
     return (
       <div className="background-panel">
         <h4>Background</h4>
-        <div>
-          <Gradient
-            handleBackgroundColorFrom={this.props.handleBackgroundColorFrom}
-            handleBackgroundColorTo={this.props.handleBackgroundColorTo}
-          />
-        </div>
+        <Gradient />
       </div>
     );
   }

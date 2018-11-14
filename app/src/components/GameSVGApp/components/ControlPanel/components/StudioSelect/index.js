@@ -1,34 +1,31 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
+import {connect} from "react-redux";
+import {setCurrentPanel} from "./redux/actions";
 
-export default class extends Component {
-  state = {
-    options: [
-      "Background",
-      "Foreground",
-      "Text",
-      "Size"
-    ]
-  };
-  renderSelect (){
-    return this.state.options.map((option, index) => {
-      return <option key={index} value={option}>{option}</option>
-    })
-  }
-
-  change = ({ target }) => {
-    const { value } = target;
-    this.props.handleCurrentPanel(value);
+class StudioSelect extends Component {
+  change = ({target}) => {
+    this.props.setCurrentPanel(target.value);
   };
 
-  render (){
+  render() {
     return (
       <div className="studio-select">
         <label>Studio</label>
+
         <select onChange={this.change}>
           <option>none</option>
-          {this.renderSelect()}
+          <option value="Background">Background</option>
+          <option value="Foreground">Foreground</option>
         </select>
       </div>
     )
   }
 }
+
+const mapDispatchToProps = dispatch => ({
+  setCurrentPanel: svg => {
+    dispatch(setCurrentPanel(svg));
+  }
+});
+
+export default connect(null, mapDispatchToProps)(StudioSelect);

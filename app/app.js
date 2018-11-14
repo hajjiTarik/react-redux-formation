@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { Provider } from "react-redux";
 import store from "./redux/store";
 import App from './src';
-import "style.scss";
 
 const ConnectedApp = () => (
   <Provider store={store}>

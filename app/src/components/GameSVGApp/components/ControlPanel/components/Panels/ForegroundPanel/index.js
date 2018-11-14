@@ -1,14 +1,42 @@
-import React, { Component } from "react";
-import RotateNegative from "./"
+import React, {Component} from "react";
+import {connect} from "react-redux";
+import {
+  setRotate
+} from "../redux/actions/index";
 
-export default class ForegroundPanel extends Component {
+class ForegroundPanel extends Component {
 
-  render (){
+  rotate = (sense, value) => {
+    console.log(this.props.rotateCurrentValue, value, sense);
+    this.props.setRotate(this.props.rotateCurrentValue + value * sense);
+  };
+
+  render() {
     return <div>
-      <h3>ForegroundPanel</h3>
-
-      <RotateNegative negativeDegreHandler={this.props.handleRotate} />
-      <RotatePositive positiveDegreHandler={this.props.handleRotate} />
+      <h3>Foreground Panel</h3>
+      <button onClick={() => {
+        this.rotate(1, 15)
+      }}>
+        Rotate +15
+      </button>
+      <button onClick={() => {
+        this.rotate(-1, 15)
+      }}>
+        Rotate -15
+      </button>
     </div>
   }
 }
+
+
+const mapDispatchToProps = dispatch => ({
+  setRotate: (deg) => {
+    dispatch(setRotate(deg));
+  }
+});
+
+const mapStateToProps = (state) => ({
+  rotateCurrentValue: state.app.transformationReducer.rotate
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ForegroundPanel);
