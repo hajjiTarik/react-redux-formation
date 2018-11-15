@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 
 import "./style.scss";
 
-const Preview = props => (
+export const Preview = props => (
   <div className="preview-container" style={{
     backgroundColor: props.backgroundColor,
     backgroundImage: `linear-gradient(${props.fromColor}, ${props.toColor})`}}>
@@ -18,7 +18,7 @@ Preview.defaultProps = {
   fromColor: "transparent",
   toColor: "transparent",
   backgroundColor: "transparent",
-  rotate: 0
+  rotate: 5
 };
 
 

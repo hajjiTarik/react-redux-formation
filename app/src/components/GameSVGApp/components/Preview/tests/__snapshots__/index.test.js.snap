@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Preview Should render without props 1`] = `
+<div
+  className="preview-container"
+  style={
+    Object {
+      "backgroundColor": "transparent",
+      "backgroundImage": "linear-gradient(transparent, transparent)",
+    }
+  }
+>
+  <img
+    alt="error"
+    style={
+      Object {
+        "transform": "rotate(bobodeg)",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Test Preview Should render without props 2`] = `
+<div
+  className="preview-container"
+  style={
+    Object {
+      "backgroundColor": "transparent",
+      "backgroundImage": "linear-gradient(transparent, transparent)",
+    }
+  }
+>
+  <img
+    alt="error"
+    style={
+      Object {
+        "transform": "rotate(tootoodeg)",
+      }
+    }
+  />
+</div>
+`;
