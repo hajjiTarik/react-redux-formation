@@ -5,8 +5,9 @@ import store from "./redux/store";
 import App from './src';
 import {BrowserRouter} from 'react-router-dom'
 
+console.log(store);
 const ConnectedApp = () => (
-  <Provider store={store}>
+  <Provider store={store()}>
     <BrowserRouter>
       <App/>
     </BrowserRouter>

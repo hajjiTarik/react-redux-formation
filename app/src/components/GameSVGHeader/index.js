@@ -1,8 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Switch } from 'react-router';
 import App from "../GameSVGApp";
 import About from "../About";
-import Faq from "../Faq";
+import Faq from "../FAQ";
 
 export default () => (
     <Router>
@@ -18,11 +19,11 @@ export default () => (
             <Link to="/faq">FAQ</Link>
           </li>
         </ul>
-        <switch>
+        <Switch>
           <Route exact path="/" component={App} />
           <Route path="/about" component={About} />
           <Route path="/faq" component={Faq} />
-        </switch>
+        </Switch>
 
       </div>
     </Router>
